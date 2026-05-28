@@ -1,7 +1,9 @@
 import cv2
-
+import mediapipe as mp
 
 cap = cv2.VideoCapture(0)
+mp_hands = mp.solutions.hands
+hands = mp.Hands()
 
 while True:
     # Capture frame-by-frame
@@ -12,5 +14,5 @@ while True:
 
     # Display the resulting frame
     cv2.imshow('window', frame)
-    if cv2.waitKey(5000) & 0xFF == ord('q'):
+    if cv2.waitKey(10) & 0xFF == ord('q'):
         break
