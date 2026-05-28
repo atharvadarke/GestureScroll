@@ -1,9 +1,22 @@
 import cv2
 import mediapipe as mp
+from mediapipe.tasks import python
+from mediapipe.tasks.python import vision
+
+base_options = python.BaseOptions(
+    model_asset_path='hand_landmarker.task'
+)
+
+options = vision.HandLandmarkerOptions(
+    base_options=base_options,
+    num_hands=2,
+    running_mode=vision.RunningMode.VIDEO
+)
+
+detector = vision.HandLandmarker.create_from_options(options)
 
 cap = cv2.VideoCapture(0)
-mp_hands = mp.solutions.hands
-hands = mp.Hands()
+
 
 while True:
     # Capture frame-by-frame
