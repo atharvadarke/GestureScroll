@@ -5,9 +5,10 @@
 ---
 
 ## ✨ Features
+- **Background Execution**: Runs silently in the background with a convenient System Tray icon to toggle features without keeping a terminal window open.
 - **Pinch-to-Scroll Mechanism**: Highly responsive mechanism where you pinch your index finger and thumb together to "grab" the screen.
 - **Multi-Directional Control**: Scroll up, down, left, or right effortlessly based on the direction of your hand movement.
-- **Visual Feedback**: The app visually tracks your hand and highlights your pinch gesture with an on-screen indicator.
+- **Visual Feedback**: The app visually tracks your hand and highlights your pinch gesture with an on-screen indicator (can be toggled on/off).
 - **Lightweight & Fast**: Powered by Google's MediaPipe for fast, efficient, and accurate hand tracking, ensuring a smooth experience without input lag.
 
 ## 🛠️ Technology Stack
@@ -15,6 +16,7 @@
 - **OpenCV**: Captures real-time video feed from your webcam.
 - **MediaPipe**: State-of-the-art ML models for high-fidelity hand landmark detection.
 - **PyAutoGUI**: Cross-platform module used to programmatically control the mouse and perform scrolling actions.
+- **Pystray & Pillow**: Used to create the background taskbar notification icon.
 
 ---
 
@@ -46,7 +48,6 @@ Make sure you have Python installed on your system. You will also need a working
    ```bash
    pip install -r requirements.txt
    ```
-   *(Note: Ensure `pyautogui`, `opencv-python`, and `mediapipe` are correctly installed).*
 
 ---
 
@@ -56,11 +57,12 @@ Make sure you have Python installed on your system. You will also need a working
    ```bash
    python main.py
    ```
-2. A window will open displaying your webcam feed.
-3. Bring your hand into the frame. You will see a skeleton overlay tracking your hand movements.
-4. **Pinch** your thumb and index finger together. A **green circle** will appear indicating the gesture is registered.
-5. While holding the pinch, **move your hand** up/down or left/right to scroll the page.
-6. Press the **`q`** key while the video window is focused to quit the application.
+2. The application will immediately go to the background. Look for the **GestureScroll icon** in your system tray (bottom right corner, next to the clock).
+3. **Right-click the icon** to access the control menu:
+   - **Toggle Gestures (On/Off)**: Pause or resume gesture reading.
+   - **Show/Hide Camera**: Open a visual debugging window to see the tracking skeleton overlay.
+   - **Quit**: Safely exit the application.
+4. **Scrolling**: While gestures are enabled, **pinch** your thumb and index finger together. Move your hand up/down or left/right to scroll the page.
 
 ---
 
